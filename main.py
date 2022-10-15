@@ -88,7 +88,6 @@ def SaveData(res_dct,outfile):
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(['En', ToLang])
         for k in res_dct:
-            print(k)
             spamwriter.writerow([k,res_dct[k]])
 
 def start_progress(title):
@@ -124,7 +123,7 @@ if __name__ == '__main__':
     for i in range(startW, len(stat)):
         counter += len(stat[i])
         if counter < CounterLimit:
-            progress(i/(len(stat)))
+            progress(100*i/(len(stat)))
             res_dct[stat[i]] = translateWord(stat[i])
         else:
             print('The limit was reach for today. Start from %s\'s word' % i)
